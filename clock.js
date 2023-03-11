@@ -22,34 +22,9 @@ async function clock () {
 }
 
 setInterval(clock, 1000)
-const getIp = async () => {
-    const reso =  await fetch('https://api.ipify.org/?format=json'),
-        data =  await reso.json()
-        ip = data.ip
-        console.log(ip)
-}
-
-getIp()
-
-const options4 = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '1a9457084emsh7f3365372f2bf96p1227c6jsn1af01cf125ed',
-		'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com'
-	}
-};
 
 
 
-
-
-const options3 = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '1a9457084emsh7f3365372f2bf96p1227c6jsn1af01cf125ed',
-		'X-RapidAPI-Host': 'spott.p.rapidapi.com'
-	}
-};
 
 
 
