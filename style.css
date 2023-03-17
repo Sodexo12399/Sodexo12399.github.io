@@ -4,10 +4,10 @@
 }
 
 :root {
-  --container: #070707;
-  --second: #e16428;
-  --text: #f6e9e9;
-  --bg: #272121;
+  --container: #111;
+  --second: lightskyblue;
+  --text: #fff;
+  --bg: #000;
   --gradientRed: linear-gradient(90deg, hsl(7, 98%, 46%) 15%, hsl(11,93%,68%)100%);
   --gradientOrange: linear-gradient(90deg, hsl(22, 89%, 46%) 15%, hsl(54, 90%,68%)100%);
   --gradientYellow: linear-gradient(90deg, hsl(54, 89%, 46%) 15%, hsl(92,90%,45%)100%);
@@ -201,6 +201,11 @@ div.speed{
   opacity: 0;
 }
 
+
+
+
+
+
 .loader::after{
   content: "";
   position: absolute;
@@ -211,7 +216,7 @@ div.speed{
   right: 0;
   bottom: 0;
   margin: auto;
-  border: 5px solid transparent;
+  border: 3px solid rgba(255, 255, 255, 0.1);
   border-top-color: #fff;
   border-radius: 50%;
   animation: spinner 1s ease infinite;
@@ -220,9 +225,11 @@ div.speed{
 @keyframes spinner {
   from{
     transform: rotate(0turn);
+    border-bottom-color: transparent;
   }
   to{
-    transform: rotate(1turn);
+    transform: rotate(100turn);
+    border-bottom-color: rgba(255, 255, 255, 0.7);
   }
 }
 
@@ -315,17 +322,14 @@ h3 {
   width: fit-content;
   height: fit-content;
   background-color: white;
-  padding: 15px;
-  border-radius: 15px;
+  padding: 5px 15px;
+  border-radius: 5px;
   align-items: center;
-  backdrop-filter: blur(3px);
   justify-content: center;
   overflow-y: scroll;
   margin: 9px;
   background: var(--container);
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(11px);
 }
 
 ::-webkit-scrollbar {
@@ -341,12 +345,6 @@ h1 {
   font-size: 1.5rem;
 }
 
-img#ai {
-  display: flex;
-  margin: 3px;
-  border-radius: 5px;
-  width: 99px;
-}
 
 .iframe {
   position: relative;
@@ -358,22 +356,6 @@ img#ai {
   padding: 0;
 }
 
-iframe {
-  border-radius: 9px;
-  width: 360px;
-  height: 1500px;
-
-  top: -199px;
-  position: absolute;
-}
-
-.ai {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  height: fit-content;
-}
 
 img {
   pointer-events: none;
@@ -419,15 +401,16 @@ img[alt="youtube"] {
 }
 
 .slide {
-  display: flex;
   margin: auto;
   width: fit-content;
   border-radius: 9px;
   height: 79vh;
+  width: 79vw;
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
+  display: none;
 }
 
 canvas{
@@ -448,7 +431,7 @@ video {
 .search {
   border-radius: 5px;
   display: flex;
-  padding: 11px;
+  padding: 0 11px;
   background: var(--container);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15.9px);
@@ -460,7 +443,7 @@ input {
   border-bottom: 2px solid grey;
   border-radius: 0;
   margin: 3px;
-  padding: 5px;
+  padding: 1px 5px;
   outline: none;
   color: var(--text);
   background: transparent;
@@ -511,33 +494,14 @@ span.speed {
   place-content: center;
 }
 
-.hours {
-  position: absolute;
-  border-radius: 3px;
-  width: 49px;
-  height: 25px;
-  left: 0;
-  right: 0;
-  background-color: var(--text);
-  margin: auto;
-  top: 0;
-  bottom: -51%;
-  display: flex;
-}
 
-span.hour {
-  color: var(--second);
-  font-weight: 900;
-  text-align: center;
-  margin: auto;
-}
 
 button {
   background-color: var(--second);
   color: var(--text);
   padding: 0 9px;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 3px;
   border: none;
 }
 
@@ -567,6 +531,7 @@ a.wydad {
     1px 22px 10px rgba(16, 16, 16, 0.2), */
   box-shadow: 1px 3px 6px rgba(16, 16, 16, 0.1);
   aspect-ratio: 1/1;
+  display: flex;
 }
 
 img[alt="nasa"] {
@@ -606,7 +571,7 @@ img.naza {
   position: absolute;
   height: 44px;
   width: 5px;
-  background-color: var(--bg);
+  background-color: var(--text);
   border-radius: 1px;
   margin: auto;
   top: -29%;
@@ -642,11 +607,21 @@ img.naza {
   transform-origin: bottom center;
 }
 
+.seconde::after{
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  background: var(--second);
+  width: 2px;
+  height: 19px;
+  right: 0;
+}
+
 .wrapper.def {
   width: fit-content;
   max-width: 399px;
   display: grid;
-  padding: 19px;
   align-items: center;
   justify-content: center;
 }
