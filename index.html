@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="/style.css" />
     <link rel="shortcut icon" href="./Wydad.png" type="image/jpg" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
     <header>
@@ -45,6 +46,13 @@
         </div>
       </div>
     </header>
+
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
     <div class="slide">
       <div class="wrapper search">
@@ -129,10 +137,6 @@
           <!-- point -->
           <div class="point"></div>
         </div>
-
-        <div class="hours">
-          <span class="hour"></span>
-        </div>
       </div>
 
       <div class="wrapper speed">
@@ -148,6 +152,13 @@
         <span id="def"></span>
       </div>
     </div>
+
+    <script>
+      $(window).on('load', function(){
+        $(".loader").fadeOut(500);
+        $(".slide").fadeIn(500).css('display', 'flex')
+      })
+    </script>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.6.3.js"
@@ -158,6 +169,5 @@
   <script src="search.js"></script>
   <script src="yt.js"></script>
   <script src="weather.js"></script>
-  <script src="./vid.js"></script>
   <script src="clock.js"></script>
 </html>
