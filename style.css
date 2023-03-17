@@ -405,9 +405,10 @@ img[alt="youtube"] {
   width: fit-content;
   border-radius: 9px;
   height: 79vh;
-  width: 79vw;
+  width: 89vw;
   justify-content: center;
   flex-wrap: wrap;
+  overflow-y: scroll;
   align-content: center;
   align-items: center;
   display: none;

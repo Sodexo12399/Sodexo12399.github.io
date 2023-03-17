@@ -41,37 +41,10 @@ function financial(x) {
 document.querySelector("span.mad").style.display = "none";
 document.querySelector("div.mad").style.display = "none";
 
-const Exchange = async () => {
-  const res = await fetch(
-      "https://api.currencyfreaks.com/latest?apikey=0ce380b45c794f10823d6f43a681887b"
-    ),
-    text = await res.json();
-
-    if (text.success == false){
-      document.querySelector("span.mad").style.display = "none";
-document.querySelector("div.mad").style.display = "none";
-
-    }
-    else{
-      const mad = await financial(text.rates.MAD);
-      document.querySelector("span.mad").innerHTML = mad + "<span>&nbspMAD";
-      document.querySelector("span.mad").style.display = "block";
-      document.querySelector("div.mad").style.display = "block";
-
-    }
-      
-};
 
 
-const getLatestNews = async () => {
-  const res = await fetch(
-    "https://newsapi.org/v2/top-headlines?category=sports&from=2023-03-09&country=ma&sortBy=popularity&apiKey=4846389196c140279cc768ca8aa5f0ce"
-  );
-  const data = await res.json();
-  var i = Math.floor(Math.random() * data.articles.length);
-  const news = data.articles[i].title;
-  console.log(news);
-};
+
+
 
 
 
