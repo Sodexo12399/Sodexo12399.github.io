@@ -24,27 +24,28 @@ var source = document.createElement("source");
 function FetchFile(url) {
   console.log(url);
 }
-btn.style.display = 'none'
+btn.style.display = "none";
 download.onpaste = async (e) => {
-  btn.innerHTML = 'Loading'
-btn.style.display = 'block'
+  if (e != "") {
+    btn.innerHTML = "Loading";
+    btn.style.display = "block";
 
-  const link = e.clipboardData.getData("text");
-  const id = parser(link);
-  const response = await fetch(
-    `https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=${id}`,
-    options
-  );
-  const data = await response.json();
-  console.log(data)
-  const url = data.adaptiveFormats[3].url;
-  btn.innerHTML = "Download";
-  btn.style.pointerEvents = "all";
-  btn.onclick = ()=>{
-    open(url, '_blank')
+    const link = e.clipboardData.getData("text");
+    const id = parser(link);
+    const response = await fetch(
+      `https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=${id}`,
+      options
+    );
+    const data = await response.json();
+    console.log(data);
+    const url = data.adaptiveFormats[3].url;
+    btn.innerHTML = "Download";
+    btn.style.pointerEvents = "all";
+    btn.onclick = () => {
+      open(url, "_blank");
+    };
   }
 };
-
 
 // setInterval(() => {
 //   const i = Math.floor(Math.random() * colorArray.length);
@@ -66,15 +67,15 @@ const Def = async (word) => {
       options7
     ),
     data = await res.json();
-    console.log(data);
+  console.log(data);
 
-    const def = data[0].definition,
+  const def = data[0].definition,
     sourc = data[0].source;
   document.querySelector("span#def").innerHTML = def, sourc;
 };
 
 const inp = document.querySelector("input#def");
-const button= document.querySelector('button#def')
+const button = document.querySelector("button#def");
 button.onclick = () => {
   Def(`${inp.value}`);
 };

@@ -1,13 +1,13 @@
 @font-face {
-  font-family: face;
+  font-family: 'face';
   src: url("./Poppins-Medium.ttf");
 }
 
 :root {
   --container: #111;
-  --second: lightskyblue;
-  --text: #fff;
-  --bg: #000;
+  --second: #675afe;
+  --text: black;
+  --bg: #040c18;
   --gradientRed: linear-gradient(90deg, hsl(7, 98%, 46%) 15%, hsl(11,93%,68%)100%);
   --gradientOrange: linear-gradient(90deg, hsl(22, 89%, 46%) 15%, hsl(54, 90%,68%)100%);
   --gradientYellow: linear-gradient(90deg, hsl(54, 89%, 46%) 15%, hsl(92,90%,45%)100%);
@@ -18,7 +18,7 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
-  font-family: face;
+  font-family: 'face', sans-serif;
   text-decoration: none;
   transition: 0.5s ease-in-out;
   box-sizing: border-box;
@@ -167,7 +167,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text);
+  color: white;
   padding: 7px;
   background-color: transparent;
 }
@@ -299,12 +299,11 @@ h1 {
 
 body {
   display: grid;
-  background-color: var(--bg);
+  background-color: #5256ad;
   align-items: center;
   color: var(--text);
   justify-content: center;
-  place-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 
@@ -318,18 +317,24 @@ h3 {
 }
 
 .wrapper {
-  display: grid;
-  width: fit-content;
+  display: inline-block;
+  font-size: 21px;
+  width: max-content;
+  position: relative;
   height: fit-content;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 5px 15px;
   border-radius: 5px;
   align-items: center;
+  max-width: max-content;
   justify-content: center;
   overflow-y: scroll;
   margin: 9px;
-  background: var(--container);
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper.def{
+  max-width: 299px;
 }
 
 ::-webkit-scrollbar {
@@ -362,21 +367,16 @@ img {
   object-fit: cover;
 }
 
-input#youtube {
-  border-bottom: red solid;
+
+
+button#micro{
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  margin: 1px;
+  background-color: transparent;
 }
 
-input#input {
-  border-bottom: ridge lightskyblue;
-}
-
-.input-box {
-  margin: 3px;
-  width: 100%;
-  color: var(--text);
-  display: flex;
-  justify-content: space-between;
-}
 
 h1.title span {
   background-color: red;
@@ -399,19 +399,27 @@ h1.title span {
 img[alt="youtube"] {
   border-radius: 0;
 }
+img[alt="micro"] {
+  border-radius: 0;
+  cursor: text;
+  width: 31px;
+}
+
+
 
 .slide {
-  margin: auto;
+  margin: auto 9px;
   width: fit-content;
   border-radius: 9px;
-  height: 79vh;
-  width: 89vw;
+  height: fit-content;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 9px;
   overflow-y: scroll;
   align-content: center;
   align-items: center;
-  display: none;
+  background: transparent;
+  display: flex;
 }
 
 canvas{
@@ -441,13 +449,12 @@ video {
 
 input {
   border: none;
-  border-bottom: 2px solid grey;
-  border-radius: 0;
+  border-radius: 3px;
   margin: 3px;
   padding: 1px 5px;
   outline: none;
-  color: var(--text);
-  background: transparent;
+  color: white;
+  background-color: transparent;
 }
 
 h1.temp {
@@ -455,7 +462,7 @@ h1.temp {
   margin: auto;
   height: fit-content;
   width: fit-content;
-  color: var(--text);
+  color: white;
 }
 
 h1.temp span {
@@ -499,11 +506,18 @@ span.speed {
 
 button {
   background-color: var(--second);
-  color: var(--text);
+  color: white;
+  width: fit-content;
+  margin: auto;
   padding: 0 9px;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
   border: none;
+  outline: none;
+}
+
+button:hover{
+  background-color: #4534fe;
 }
 
 img[alt="wydad"] {
@@ -572,7 +586,7 @@ img.naza {
   position: absolute;
   height: 44px;
   width: 5px;
-  background-color: var(--text);
+  background-color: white;
   border-radius: 1px;
   margin: auto;
   top: -29%;
@@ -619,13 +633,6 @@ img.naza {
   right: 0;
 }
 
-.wrapper.def {
-  width: fit-content;
-  max-width: 399px;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
 
 .weather {
   cursor: default;

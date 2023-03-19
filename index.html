@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style.css" />
-    <link rel="shortcut icon" href="./Wydad.png" type="image/jpg" />
+    <link rel="shortcut icon" href="./favicon.png" type="image/jpg" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
@@ -47,34 +47,25 @@
       </div>
     </header>
 
-    <div class="loader">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
     <div class="slide">
-      <div class="wrapper search">
-        <div class="input-box">
-          <input
-            type="text"
-            name=""
-            spellcheck="false"
-            placeholder="YouTube..."
-            id="youtube"
-          />
-        </div>
+      <div class="wrapper">
+        <input
+          type="text"
+          name=""
+          spellcheck="false"
+          placeholder="Google..."
+          id="input"
+        />
+      </div>
 
-        <div class="input-box">
-          <input
-            type="text"
-            name=""
-            spellcheck="false"
-            placeholder="Google..."
-            id="input"
-          />
-        </div>
+      <div class="wrapper">
+        <input
+          type="text"
+          name=""
+          spellcheck="false"
+          placeholder="YouTube..."
+          id="youtube"
+        />
       </div>
 
       <div class="wrapper mad">
@@ -82,10 +73,8 @@
       </div>
 
       <div class="wrapper download">
-        <div class="input-box">
-          <input type="url" placeholder="LINK..." id="download" required />
-          <button class="dwn-btn">Download</button>
-        </div>
+        <input type="url" placeholder="LINK..." id="download" required />
+        <button class="dwn-btn">Download</button>
       </div>
 
       <!-- <div class="wrapper video">
@@ -112,7 +101,7 @@
         }
       </script> -->
 
-      <section class="battery">
+      <!-- <section class="battery">
         <div class="Bcard">
           <div class="Bpill">
             <div class="Blevel">
@@ -124,7 +113,11 @@
             <p class="Bstatus"></p>
           </div>
         </div>
-      </section>
+      </section> -->
+
+      <button id="micro">
+        <img src="./image.png" alt="micro" />
+      </button>
 
       <div class="wrapper clock">
         <div class="wrap">
@@ -145,19 +138,23 @@
       </div>
 
       <div class="wrapper def">
-        <div class="input-box">
+        <div class="box">
           <input type="text" id="def" placeholder="WORD" />
-          <button id="def">Def</button>
-        </div>
+          <button id="def">Search</button>
+        
+          
+
+
+          
         <span id="def"></span>
       </div>
     </div>
 
     <script>
-      $(window).on('load', function(){
-        $(".loader").fadeOut(500);
-        $(".slide").fadeIn(500).css('display', 'flex')
-      })
+      // $(window).on("load", function () {
+      //   $(".loader").fadeOut(500);
+      //   $(".slide").fadeIn(500).css("display", "flex");
+      // });
     </script>
   </body>
   <script

@@ -8,7 +8,7 @@ async function clock () {
 
     
   document.querySelector('.heure').style.transform = `rotate(${hours}deg)`
-  document.querySelector('.minute').style.transform = `rotate(${mn}deg)`
+  document.querySelector('div.minute').style.transform = `rotate(${mn}deg)`
   document.querySelector('.seconde').style.transform = `rotate(${seconds}deg)`
   
 }
