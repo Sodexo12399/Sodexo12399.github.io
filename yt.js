@@ -26,7 +26,7 @@ function FetchFile(url) {
 }
 btn.style.display = "none";
 download.onpaste = async (e) => {
-  if (e != "") {
+  if (e != "" && e.clipboardData.getData("text").indexOf('youtube')!= -1) {
     btn.innerHTML = "Loading";
     btn.style.display = "block";
 
@@ -44,6 +44,7 @@ download.onpaste = async (e) => {
     btn.onclick = () => {
       open(url, "_blank");
     };
+    
   }
 };
 

@@ -17,120 +17,49 @@
     <header>
       <div class="container nav">
         <!-- header -->
-        <a href="./" class="logo">So<span>dexo</span></a>
-
-        <div
-          style="
-            display: flex;
-            margin: auto;
-            gap: 1rem;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-          "
-        >
-          <a
-            href="https://www.youtube.com/@WINNERS2005"
-            class="wydad"
-            target="_blank"
-            ><img src="./Wydad.png" alt="wydad"
-          /></a>
-
-          <a href="https://beinmatch.life/home/" class="bein" target="_blank"
-            ><img src="./bein.png" alt="bein"
-          /></a>
-        </div>
-
+        <a
+          href="C:/Users/user/Desktop/Mohammed Nasser (School) - Chrome.lnk"
+          class="logo"
+          >S<i class="ri-football-fill"></i
+          ><span>dex<i class="ri-football-line second"></i></span
+        ></a>
         <div class="weather">
-          <h1 class="temp"></h1>
+          <h1 class="temp"><div class="loader"></div></h1>
         </div>
       </div>
     </header>
 
     <div class="slide">
-      <div class="wrapper">
-        <input
-          type="text"
-          name=""
-          spellcheck="false"
-          placeholder="Google..."
-          id="input"
-        />
-      </div>
-
-      <div class="wrapper">
-        <input
-          type="text"
-          name=""
-          spellcheck="false"
-          placeholder="YouTube..."
-          id="youtube"
-        />
-      </div>
-
-      <div class="wrapper mad">
-        <span class="mad"><div class="loader"></div></span>
-      </div>
-
       <div class="wrapper download">
         <input type="url" placeholder="LINK..." id="download" required />
         <button class="dwn-btn">Download</button>
       </div>
 
-      <!-- <div class="wrapper video">
-        <video controls allowfullscreen id="video-player"></video>
+      <div class="wrapper news">
+        <a href="" class="new" target="_blank">
+          <img src="" class="new" alt="" />
+          <h1 class="title"></h1>
+          <p class="description"></p>
+        </a>
       </div>
-
-      <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-      <script>
-        const videoPlayer = document.getElementById("video-player");
-        const videoUrl = "https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/arriadia/hls_snrt/arriadia-avc1_400000=2-mp4a_130400_qad=1.m3u8";
-
-        if (Hls.isSupported()) {
-          const hls = new Hls();
-          hls.loadSource(videoUrl);
-          hls.attachMedia(videoPlayer);
-          hls.on(Hls.Events.MANIFEST_PARSED, function () {
-            videoPlayer.play();
-          });
-        } else if (videoPlayer.canPlayType("application/vnd.apple.mpegurl")) {
-          videoPlayer.src = videoUrl;
-          videoPlayer.addEventListener("loadedmetadata", function () {
-            videoPlayer.play();
-          });
-        }
-      </script> -->
-
-      <!-- <section class="battery">
-        <div class="Bcard">
-          <div class="Bpill">
-            <div class="Blevel">
-              <div class="Bliquid"></div>
-            </div>
-          </div>
-          <div class="Bdata">
-            <h1 class="Bpercentage"></h1>
-            <p class="Bstatus"></p>
-          </div>
-        </div>
-      </section> -->
 
       <button id="micro">
-        <img src="./image.png" alt="micro" />
+        <div class="star">
+          <div class="blue"></div>
+          <div class="red"></div>
+          <div class="yellow"></div>
+          <div class="green"></div>
+        </div>
       </button>
 
-      <div class="wrapper clock">
-        <div class="wrap">
-          <!-- heure -->
+      <!-- <div class="wrapper clock">
+        <div class="wrap"> 
           <div class="heure"></div>
-          <!-- minute -->
           <div class="minute"></div>
-          <!-- seconde -->
           <div class="seconde"></div>
-          <!-- point -->
           <div class="point"></div>
         </div>
-      </div>
+      </div>  -->
 
       <div class="wrapper speed">
         <span class="speed"> </span>
@@ -138,25 +67,15 @@
       </div>
 
       <div class="wrapper def">
-        <div class="box">
+        <div class="inline-flex">
           <input type="text" id="def" placeholder="WORD" />
           <button id="def">Search</button>
-        
-          
-
-
-          
+        </div>
         <span id="def"></span>
       </div>
     </div>
-
-    <script>
-      // $(window).on("load", function () {
-      //   $(".loader").fadeOut(500);
-      //   $(".slide").fadeIn(500).css("display", "flex");
-      // });
-    </script>
   </body>
+
   <script
     src="https://code.jquery.com/jquery-3.6.3.js"
     integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -167,4 +86,5 @@
   <script src="yt.js"></script>
   <script src="weather.js"></script>
   <script src="clock.js"></script>
+  <script src="news.js"></script>
 </html>

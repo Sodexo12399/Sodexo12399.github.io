@@ -5,9 +5,9 @@
 
 :root {
   --container: #111;
-  --second: #675afe;
+  --second: #03abff;
   --text: black;
-  --bg: #040c18;
+  --bg: white;
   --gradientRed: linear-gradient(90deg, hsl(7, 98%, 46%) 15%, hsl(11,93%,68%)100%);
   --gradientOrange: linear-gradient(90deg, hsl(22, 89%, 46%) 15%, hsl(54, 90%,68%)100%);
   --gradientYellow: linear-gradient(90deg, hsl(54, 89%, 46%) 15%, hsl(92,90%,45%)100%);
@@ -137,6 +137,13 @@
 
 }
 
+i{
+  font-size: 19px;
+  margin: 0;
+  padding: 1px;
+  font-weight: 100;
+}
+
 .gradientOrange, .gradientOrange::after{
   background: var(--gradientOrange);
 }
@@ -165,10 +172,10 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: white;
-  padding: 7px;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: black;
+  padding: 3px;
   background-color: transparent;
 }
 
@@ -178,7 +185,7 @@ div.speed{
   min-height: 59px;
 }
 
-.logo span {
+.logo span, i.second {
   color: var(--second);
 }
 
@@ -206,30 +213,28 @@ div.speed{
 
 
 
-.loader::after{
+div.loader::after{
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 21px;
+  height: 21px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
   border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top-color: #fff;
+  border-top-color: grey;
   border-radius: 50%;
-  animation: spinner 1s ease infinite;
+  animation: spinner 1s ease alternate infinite;
 }
 
 @keyframes spinner {
   from{
     transform: rotate(0turn);
-    border-bottom-color: transparent;
   }
   to{
-    transform: rotate(100turn);
-    border-bottom-color: rgba(255, 255, 255, 0.7);
+    transform: rotate(1turn);
   }
 }
 
@@ -279,7 +284,7 @@ header {
   align-items: center;
   justify-content: space-around;
   z-index: 200;
-  background-color: var(--container);
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .post-filter {
@@ -298,8 +303,8 @@ h1 {
 }
 
 body {
-  display: grid;
-  background-color: #5256ad;
+  display: flex;
+  background-color: white;
   align-items: center;
   color: var(--text);
   justify-content: center;
@@ -317,24 +322,32 @@ h3 {
 }
 
 .wrapper {
-  display: inline-block;
+  display: inline-flex;
   font-size: 21px;
-  width: max-content;
+  min-width: max-content;
   position: relative;
   height: fit-content;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px;
   border-radius: 5px;
   align-items: center;
-  max-width: max-content;
   justify-content: center;
   overflow-y: scroll;
-  margin: 9px;
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper.def{
+.inline-flex{
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 9px;
+}
+
+div.wrapper.def{
   max-width: 299px;
+  width: 55px;
+  height: fit-content;
+  padding: 15px;
+  display: grid;
 }
 
 ::-webkit-scrollbar {
@@ -368,14 +381,6 @@ img {
 }
 
 
-
-button#micro{
-  width: fit-content;
-  height: fit-content;
-  padding: 0;
-  margin: 1px;
-  background-color: transparent;
-}
 
 
 h1.title span {
@@ -415,6 +420,7 @@ img[alt="micro"] {
   justify-content: center;
   flex-wrap: wrap;
   padding: 9px;
+  gap: 9px;
   overflow-y: scroll;
   align-content: center;
   align-items: center;
@@ -450,10 +456,9 @@ video {
 input {
   border: none;
   border-radius: 3px;
-  margin: 3px;
-  padding: 1px 5px;
+  padding: 1px 9px;
   outline: none;
-  color: white;
+  color: var(--text);
   background-color: transparent;
 }
 
@@ -462,7 +467,7 @@ h1.temp {
   margin: auto;
   height: fit-content;
   width: fit-content;
-  color: white;
+  color: black;
 }
 
 h1.temp span {
@@ -502,16 +507,75 @@ span.speed {
   place-content: center;
 }
 
+div.star{
+  display: inline-flex;
+  width: 69px;
+  height: 59px;
+  align-items: center;
+  justify-content: center;
+}
+
+button#micro{
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 0 9px;
+}
+
+div.star div{
+  width: 9px;
+  height: 9px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50px;
+  
+}
+
+
+
+div.star div.blue{
+  background-color: #4285f4;
+  animation-delay: .3s;
+}
+div.star div.red{
+  background-color: #db4437;
+  animation-delay: .1s;
+}
+div.star div.yellow{
+  background-color: #f4b400;
+  animation-delay: .2s;
+}
+div.star div.green{
+  background: #0f9d58;
+}
+
+.animate{
+  animation: updown .9s ease-in-out infinite  alternate;
+}
+
+@keyframes updown {
+  50%{
+    height: 20%;
+    border-radius: 50px;
+  }
+  100%{
+    border-radius: 50px;
+    height: 100%;
+  }
+}
 
 
 button {
   background-color: var(--second);
   color: white;
   width: fit-content;
-  margin: auto;
+  margin:0;
+  font-size: 1rem;
+  max-width: min-content;
+  height: 100%;
   padding: 0 9px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50px;
   border: none;
   outline: none;
 }
@@ -538,13 +602,15 @@ a.wydad {
 }
 
 .clock {
-  background-color: var(--container);
+  background: rgba(175, 175, 175, 0.3);
+box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
   border: 5px var(--second) solid;
   border-radius: 50%;
   /* box-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
     1px 4px 1px #919191, 1px 5px 9px #919191, 1px 18px 11px rgba(16, 16, 16, 0.4),
     1px 22px 10px rgba(16, 16, 16, 0.2), */
-  box-shadow: 1px 3px 6px rgba(16, 16, 16, 0.1);
   aspect-ratio: 1/1;
   display: flex;
 }
@@ -587,6 +653,7 @@ img.naza {
   height: 44px;
   width: 5px;
   background-color: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
   border-radius: 1px;
   margin: auto;
   top: -29%;
@@ -619,6 +686,7 @@ img.naza {
   bottom: 0;
   top: -55%;
   background-color: var(--second);
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.25);
   transform-origin: bottom center;
 }
 
@@ -638,17 +706,13 @@ img.naza {
   cursor: default;
 }
 
-img[alt="bein"] {
-  filter: invert() saturate() brightness(199);
-  width: 59px;
-  object-fit: fill;
-  margin: auto;
-  border-radius: 3px;
-}
+
 
 span#def {
-  text-justify: center;
+  text-justify: left;
   color: var(--text);
+  font-size: .9rem;
+  width: 30vw;
 }
 
 .point {
@@ -663,4 +727,29 @@ span#def {
   width: 9px;
   height: 9px;
   border: white solid;
+
+}
+div.news img{
+  border-radius: 5px;
+  margin: auto;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+div.news{
+  max-width: 299px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  min-width: 0;
+  border-radius: 5px;
+}
+
+h1.title{
+  font-size: .9rem;
+  text-align: left;
+  color: black;
+  font-weight: 300;
+  margin: 5px;
 }
