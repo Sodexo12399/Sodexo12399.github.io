@@ -12,6 +12,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 var recon = new window.SpeechRecognition();
   
   recon.onresult = (event)=>{
+    divs.forEach(div => div.classList.remove('click'))
     divs.forEach(div => div.classList.remove('animate'))
     let put = event.results[0][0].transcript.replace(" ", "+")
     let putto = event.results[0][0].transcript.replace(" ", "+").replace('YouTube', '')
@@ -30,6 +31,7 @@ const micro = document.querySelector('button#micro'),
       divs = document.querySelectorAll('div.star div')
   micro.onclick = ()=>{
     recon.start()
+    divs.forEach(div => div.classList.add('click'))
     recon.onspeechstart = (e)=>{
       console.log(e);
       divs.forEach(div => div.classList.add('animate'))
@@ -39,4 +41,6 @@ const micro = document.querySelector('button#micro'),
     }
   }
 
-
+recon.onend= ()=>{
+  divs.forEach(div => div.classList.remove('click', 'animate'))
+}
