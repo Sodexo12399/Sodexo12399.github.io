@@ -3,85 +3,71 @@
 const wra = document.querySelector("div.news");
 wra.style.display = "none";
 
-const news2 = async () => {
+const news2 = async (i) => {
   let d = new Date();
   const res = await fetch("https://articles.sportslocalmedia.com/foot01.json"),
     data = await res.json();
-  var i = Math.floor(Math.random() * 24) || 0
-  console.log(data, i);
-  const title = data[i].title;
+
   document.querySelector("img.new").src = data[i].imageUrl;
   document.querySelector("a.new").href = data[i].url;
   let postDate = Date.parse(data[i].publicationDate);
-  let date = (Date.parse(d) - postDate)/1000;
-  console.log(postDate, Date.parse(d), date);
-  function format(date){
-        if(date< 60)
-        return 'now'
-
-        else if(date < 3600)
-        return `${Math.floor(date/60)} min. ago`
-
-        else if(date < 86400)
-        return `${Math.floor(date/3600)} hr. ago`
-
-        else return `${Math.floor(date/(86400))} day. ago`
+  let date = (d.getTime() - postDate) / 1000;
+  function format(date) {
+    if (date < 60) return "now";
+    else if (date < 3600) return `${Math.floor(date / 60)} min. ago`;
+    else if (date < 86400) return `${Math.floor(date / 3600)} hr. ago`;
+    else return `${Math.floor(date / 86400)} day. ago`;
   }
   document.querySelector("h1.title").innerHTML =
     data[i].title + `<span class='time'>${format(date)}</span>`;
   wra.style.display = "flex";
 };
 const maghrib = async () => {
-  let d = new Date()
+  let d = new Date(),
+    tmsp = Date.parse(d);
   const res = await fetch("https://www.hespress.com/?weather_and_prayer"),
     data = await res.json();
-    console.log(data, Date.parse(d), d);
-    let magh = new Date(`${data.prayer[80].maghrib} GMT+0000 ${d.getDay()}/${d.getDate()}/${d.getFullYear()} (UTC)`)
+  let magh = new Date(
+    `${data.prayer[80].maghrib} ${
+      d.getMonth() + 1
+    }/${d.getDate()}/${d.getFullYear()}`
+  );
 
-        let diff = -(Date.parse(d) - Date.parse(magh))/1000
-    console.log(magh);
-    function format(date){
-      if(date< 60)
-      return 'now'
+  let diff = -(Date.parse(d) - Date.parse(magh)) / 1000;
 
-      else if(date < 3600)
-      return `${Math.floor(date/60)} min.`
-
-      else
-      return `${Math.floor(date/3600)} Hr.`
-
-}
-  document.querySelector('div.maghrib h1').innerHTML = format(diff)
+  function format(date) {
+    if (date < 60) return "now";
+    else if (date < 3600) return `${Math.floor(date / 60)} min.`;
+    else if (date < 3600 * 24) return `${Math.floor(date / 3600)}hr ${Math.floor(((date/3600) - Math.floor(date / 3600))*60)}min`;
+    else {
+      document.querySelector("div.maghrib").style.display = "none";
+    }
+  }
+  document.querySelector("div.maghrib h1").innerHTML = format(diff);
 };
+document.querySelector("div.fan-zone").style.display = "none";
 
 const Wydad = async () => {
-  let d = new Date()
+  let d = new Date();
   const res = await fetch("https://api.wydadplus.com/api/latestarticles"),
     data = await res.json();
-    console.log(data);
-
-    function format(date){
-      if(date< 60)
-      return 'now'
-
-      else if(date < 3600)
-      return `${Math.floor(date/60)} min.`
-
-      else
-      return `${Math.floor(date/3600)} Hr.`
-
-}
-  document.querySelector('div.fan-zone h1').innerHTML = data[0].Title
+  document.querySelector("div.fan-zone").style.display = "flex";
+  document.querySelector("div.fan-zone h1").innerHTML = data[0].Title;
 };
 
-
-Wydad()
-
-if(navigator.onLine){
-  news2();
-  setInterval(news2, 15000)
-  setInterval(maghrib, 15000)
-  maghrib()
+if (navigator.onLine) {
+  setInterval(function () {
+    news2(0);
+  }, 5000);
+  setInterval(function () {
+    var c = Math.floor(Math.random() * 10);
+    news2(c);
+  }, 10000);
+  setInterval(maghrib, 1000);
+  maghrib();
+  Wydad();
 } else {
-console.log('offline');
+  console.log("offline");
 }
+
+fetch('https://www.footmercato.net/live/931095467905835062/classement').then(res => res.type).then(console.log())

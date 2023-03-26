@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4979652304434348"
-     crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4979652304434348"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,14 +19,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2KCX61E9WB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-2KCX61E9WB"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'G-2KCX61E9WB');
-</script>
+    gtag("config", "G-2KCX61E9WB");
+  </script>
   <body>
     <header>
       <div class="container nav">
@@ -46,6 +54,9 @@
       <div class="wrapper download">
         <input type="url" placeholder="LINK..." id="download" required />
         <button class="dwn-btn">Download</button>
+        <form action="" class="dwn">
+          <input type="text" hidden class="dwn" name="download" />
+        </form>
       </div>
 
       <div class="wrapper news">
@@ -89,7 +100,7 @@
         <div class="progress"></div>
       </div>
 
-      <div class="wrapper def">
+      <div class="wrapper def news">
         <div class="inline-flex">
           <input type="text" id="def" placeholder="WORD" />
           <button id="def">Search</button>

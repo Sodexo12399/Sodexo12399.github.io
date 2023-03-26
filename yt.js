@@ -21,10 +21,14 @@ btn.style.pointerEvents = "none";
 var video = document.querySelector("video#video");
 var source = document.createElement("source");
 
+const inputY = document.querySelector('input.dwn')
+console.log(inputY);
+
 function FetchFile(url) {
   console.log(url);
 }
 btn.style.display = "none";
+const form = document.querySelector('form.dwn')
 download.onpaste = async (e) => {
   if (e != "" && e.clipboardData.getData("text").indexOf('youtube')!= -1) {
     btn.innerHTML = "Loading";
@@ -44,9 +48,11 @@ download.onpaste = async (e) => {
     btn.onclick = () => {
       open(url, "_blank");
     };
-    
+    inputY.value = url;
   }
 };
+
+
 
 // setInterval(() => {
 //   const i = Math.floor(Math.random() * colorArray.length);
